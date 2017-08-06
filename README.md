@@ -23,13 +23,14 @@ This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github
 
 Terraform will create the following resources as part of the AMI Builder for Packer:
 
+```bash
     + Terraform resources for Github, Terraform, Code Pipeline, Code Build
     + Github - Git repository
     + AWS CodeBuild - Downloads Packer and run Packer to build AMI
     + AWS CodePipeline - Orchestrates pipeline and listen for new commits in CodeCommit
     + Amazon SNS Topic - AMI Builds Notification via subscribed SNS
     + Amazon Cloudwatch Events Rule - Custom Event for AMI Builder that will trigger SNS upon AMI completion
-
+```
 
 ## HOWTO
 
