@@ -47,7 +47,7 @@ Terraform will create the following resources as part of the AMI Builder for Pac
     + cp terraform.tfvars.example terraform.tfvars
     + atom terraform.tfvars or with your editor of choice
     + terraform plan
-    +terraform apply
+    + terraform apply
 ```
 
 ![AWS CodePipeline Console - AMI Builder Pipeline](docs/images/ami-builder-pipeline.png)
