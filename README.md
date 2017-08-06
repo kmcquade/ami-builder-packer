@@ -37,11 +37,18 @@ Terraform will create the following resources as part of the AMI Builder for Pac
 **Before you start**
 
 * Install [GIT](https://git-scm.com/downloads) if you don't have it
-* Install [Terraform](https://www.terraform.io/intro/getting-started/install.html) if you don't have it
 * Make sure AWS CLI is configured properly
 * [Configured AWS CLI and Git](http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-unixes.html) to connect to AWS CodeCommit repositories
 
 **Launch the Terraform**
+```bash
+    + git clone https://github.com/thomasvincent/ami-builder-packer.git
+    + cd ami-builder-packer/terraform
+    + cp terraform.tfvars.example terraform.tfvars
+    + atom terraform.tfvars or with your editor of choice
+    + terraform plan
+    +terraform apply
+```
 
 ![AWS CodePipeline Console - AMI Builder Pipeline](docs/images/ami-builder-pipeline.png)
 
