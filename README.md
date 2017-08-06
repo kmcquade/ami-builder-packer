@@ -1,6 +1,6 @@
 ## Purpose
 
-This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github.com/awslabs/ami-builder-packer) that replaces cloudformation with Hashicorp Terraform. Then replaces AWS CodeCommit with Github. The AWS CodePipeline and AWS CodeBuild creates a new AMI out of the latest Amazon Linux AMI, applies the CIS benchmark, and creates a Github repo if not all ready created. The code also includes terraform to orchestrate all the components. The process leverages AWS CodePipeline to orchestrate the entire process.
+This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github.com/awslabs/ami-builder-packer) that replaces cloudformation with Hashicorp Terraform, and replaces AWS CodeCommit with Github. The AWS CodePipeline and AWS CodeBuild creates a new AMI out of the latest Amazon Linux AMI, applies the CIS benchmark, and creates a Github repo if not all ready created. The code also includes terraform to orchestrate all the components. The process leverages AWS CodePipeline to orchestrate the entire process.
 
 ![Packer AMI Builder Diagram](docs/images/ami-builder-diagram.png)
 
