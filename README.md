@@ -1,6 +1,6 @@
 ## Purpose
 
-This Packer AMI Builder creates a new AMI out of the latest Amazon Linux AMI, and installs OpenVPN. The code also includes terraform to orchestrate all the components. AWS CodePipeline is leveraged to orchestrate the entire process.
+This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github.com/awslabs/ami-builder-packer) that replaces cloudformation with Hashicorp Terraform. The AWS Pipeline and Code Build creates a new AMI out of the latest Amazon Linux AMI, applies the CIS benchmark, and creates a Github repo if not all ready created. The code also includes terraform to orchestrate all the components. The process leverages AWS CodePipeline to orchestrate the entire process.
 
 ![Packer AMI Builder Diagram](docs/images/ami-builder-diagram.png)
 
@@ -23,7 +23,7 @@ This Packer AMI Builder creates a new AMI out of the latest Amazon Linux AMI, an
 
 Terraform will create the following resources as part of the AMI Builder for Packer:
 
-    * ``terraform/pipeline.tf``
+    + Terraform resources for Github, Terraform, Code Pipeline, Code Build
     + Github - Git repository
     + AWS CodeBuild - Downloads Packer and run Packer to build AMI
     + AWS CodePipeline - Orchestrates pipeline and listen for new commits in CodeCommit
@@ -51,7 +51,7 @@ Terraform will create the following resources as part of the AMI Builder for Pac
 * If Build process fails and within AWS CodeBuild Build logs you find the following line ``Timeout waiting for SSH.``, it means either
     - A) You haven't chosen a VPC Public Subnet, and therefore Packer cannot connect to the instance
     - B) There may have been a connectivity issue between Packer and EC2; retrying the build step within AWS CodePipeline should work just fine
-* Email, email-json, and sms endpoints are unsupported because the endpoint needs to be authorized and does not generate an ARN until the target email address has been validated. This breaks the Terraform model and as a result are not currently supported.
+* Email, email-json, and sms endpoints is unsupported because the endpoint needs to be authorized and does not generate an ARN until the target email address has validated. This breaks the Terraform model and as a result is not supported.
 
 ## Inspired by:
 * [nicolai86/awesome-codepipeline-ci](https://github.com/nicolai86/awesome-codepipeline-ci)
