@@ -50,7 +50,8 @@ Terraform will create the following resources as part of the AMI Builder for Pac
     + terraform apply
 ```
 
-End Result:
+#End Result
+
 ![AWS CodePipeline Console - AMI Builder Pipeline](docs/images/ami-builder-pipeline.png)
 
 ## Known issues
