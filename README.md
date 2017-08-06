@@ -1,6 +1,6 @@
 ## Purpose
 
-This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github.com/awslabs/ami-builder-packer) that replaces cloudformation with Hashicorp Terraform. Then replaces AWS Code Repository with Github. The AWS Pipeline and Code Build creates a new AMI out of the latest Amazon Linux AMI, applies the CIS benchmark, and creates a Github repo if not all ready created. The code also includes terraform to orchestrate all the components. The process leverages AWS CodePipeline to orchestrate the entire process.
+This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github.com/awslabs/ami-builder-packer) that replaces cloudformation with Hashicorp Terraform. Then replaces AWS CodeCommit with Github. The AWS CodePipeline and AWS CodeBuild creates a new AMI out of the latest Amazon Linux AMI, applies the CIS benchmark, and creates a Github repo if not all ready created. The code also includes terraform to orchestrate all the components. The process leverages AWS CodePipeline to orchestrate the entire process.
 
 ![Packer AMI Builder Diagram](docs/images/ami-builder-diagram.png)
 
@@ -19,15 +19,15 @@ This Packer AMI Builder is a fork of [awslabs/ami-builder-packer](https://github
 ```
 
 
-## Cloudformation template
+## Terraform
 
 Terraform will create the following resources as part of the AMI Builder for Packer:
 
 ```bash
-    + Terraform resources for Github, Terraform, Code Pipeline, Code Build
+    + Terraform resources for Github, Terraform, AWS CodePipeline, AWS CodeBuild
     + Github - Git repository
     + AWS CodeBuild - Downloads Packer and run Packer to build AMI
-    + AWS CodePipeline - Orchestrates pipeline and listen for new commits in CodeCommit
+    + AWS CodePipeline - Orchestrates pipeline and listen for new commits in Github
     + Amazon SNS Topic - AMI Builds Notification via subscribed SNS
     + Amazon Cloudwatch Events Rule - Custom Event for AMI Builder that will trigger SNS upon AMI completion
 ```
